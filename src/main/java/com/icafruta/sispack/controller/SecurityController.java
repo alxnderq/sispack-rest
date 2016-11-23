@@ -41,7 +41,6 @@ public class SecurityController extends BaseController{
         SecurityContextHolder.getContext().setAuthentication(auth);
         ResponsePersonalDTO login = new ResponsePersonalDTO();
         login.setUsuario(((RESTUserDetails) auth.getPrincipal()).getUsuario());
-
         login.setToken(generateToken(login.getUsuario()));
         return responseData(login, request);
     }
