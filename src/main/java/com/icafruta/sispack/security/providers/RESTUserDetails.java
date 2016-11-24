@@ -1,5 +1,6 @@
 package com.icafruta.sispack.security.providers;
 
+import com.icafruta.sispack.dto.LoginDTO;
 import com.icafruta.sispack.dto.PersonalDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,11 +12,11 @@ import java.util.Collection;
  */
 public class RESTUserDetails implements UserDetails {
 
-    private PersonalDTO usuario;
+    private LoginDTO login;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public RESTUserDetails(PersonalDTO usuario, Collection<? extends GrantedAuthority> authorities) {
-        this.usuario = usuario;
+    public RESTUserDetails(LoginDTO login, Collection<? extends GrantedAuthority> authorities) {
+        this.login = login;
         this.authorities = authorities;
     }
 
@@ -31,7 +32,7 @@ public class RESTUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return usuario.getUsuario();
+        return login.getPersonal().getUsuario();
     }
 
     @Override
@@ -51,14 +52,14 @@ public class RESTUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return usuario.isEstado();
+        return login.getPersonal().isEstado();
     }
 
-    public PersonalDTO getUsuario() {
-        return usuario;
+    public LoginDTO getLogin() {
+        return login;
     }
 
-    public void setUsuario(PersonalDTO usuario) {
-        this.usuario = usuario;
+    public void setLogin(LoginDTO login) {
+        this.login = login;
     }
 }

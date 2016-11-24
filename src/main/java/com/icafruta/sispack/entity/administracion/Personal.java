@@ -31,9 +31,8 @@ public class Personal implements Serializable{
     private String password;
     @Column(name = "etdo_psnal")
     private boolean estado;
-    @JoinColumn(name = "id_pfil", referencedColumnName = "id_pfil")
-    @ManyToOne
-    private Perfil perfil;
+    @Column(name = "id_pfil")
+    private Integer idPerfil;
 
     public String getId() {
         return id;
@@ -99,12 +98,12 @@ public class Personal implements Serializable{
         this.estado = estado;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
+    public Integer getIdPerfil() {
+        return idPerfil;
     }
 
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
+    public void setIdPerfil(Integer idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     public PersonalDTO toPersonalDTO(){

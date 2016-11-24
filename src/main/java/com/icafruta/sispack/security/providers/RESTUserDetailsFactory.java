@@ -1,5 +1,6 @@
 package com.icafruta.sispack.security.providers;
 
+import com.icafruta.sispack.dto.LoginDTO;
 import com.icafruta.sispack.dto.PerfilDTO;
 import com.icafruta.sispack.dto.PersonalDTO;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,18 +17,18 @@ public final class RESTUserDetailsFactory {
     public RESTUserDetailsFactory() {
     }
 
-    public static RESTUserDetails create(PersonalDTO data) {
+    public static RESTUserDetails create(LoginDTO data) {
         return new RESTUserDetails(data, mapToGrantedAuthorities(data.getPerfiles()));
     }
 
-    private static List<GrantedAuthority> mapToGrantedAuthorities(List<PerfilDTO> perfiles) {
+    private static List<GrantedAuthority> mapToGrantedAuthorities(List<PerfilDTO> profiles) {
         List<GrantedAuthority> listGranted = new ArrayList<>();
-        if (perfiles != null && !perfiles.isEmpty()) {
+        if (profiles != null && !profiles.isEmpty()) {
             ArrayList<Integer> listaIds = new ArrayList<>();
-            for (PerfilDTO perfil : perfiles) {
-                if (!listaIds.contains(perfil.getId())) {
-                    listaIds.add(perfil.getId());
-                    GrantedAuthority granted = new SimpleGrantedAuthority(perfil.getNombre());
+            for (PerfilDTO profile : profiles) {
+                if (!listaIds.contains(profile.getId())) {
+                    listaIds.add(profile.getId());
+                    GrantedAuthority granted = new SimpleGrantedAuthority(profile.getNombre());
                     listGranted.add(granted);
                 }
             }

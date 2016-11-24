@@ -2,7 +2,6 @@ package com.icafruta.sispack.security.filters;
 
 import com.google.gson.Gson;
 import com.icafruta.sispack.dto.PersonalDTO;
-import com.icafruta.sispack.dto.response.ResponsePersonalDTO;
 import com.icafruta.sispack.security.providers.RESTUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

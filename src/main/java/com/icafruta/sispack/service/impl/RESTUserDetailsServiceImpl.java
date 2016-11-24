@@ -1,5 +1,6 @@
 package com.icafruta.sispack.service.impl;
 
+import com.icafruta.sispack.dto.LoginDTO;
 import com.icafruta.sispack.entity.administracion.Personal;
 import com.icafruta.sispack.security.providers.RESTUserDetailsFactory;
 import com.icafruta.sispack.service.SecurityService;
@@ -22,7 +23,8 @@ public class RESTUserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Personal p = service.findByUser(username);
         if (p != null){
-            return RESTUserDetailsFactory.create(p.toPersonalDTO());
+            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getIdPerfil()));
+            return RESTUserDetailsFactory.create(dto);
         } else {
             throw new UsernameNotFoundException(String.format("No se encontro el usuario '%s'.", username));
         }

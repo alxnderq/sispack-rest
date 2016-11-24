@@ -1,5 +1,6 @@
 package com.icafruta.sispack.security.providers;
 
+import com.icafruta.sispack.dto.LoginDTO;
 import com.icafruta.sispack.dto.PersonalDTO;
 import com.icafruta.sispack.entity.administracion.Personal;
 import com.icafruta.sispack.service.SecurityService;
@@ -41,8 +42,7 @@ public class RESTAuthenticationProvider implements AuthenticationProvider {
 
         Personal p = service.findByUser(username);
         if (p != null){
-            PersonalDTO dto = p.toPersonalDTO();
-            dto.setPerfiles(service.findProfile(p.getPerfil().getId()));
+            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getIdPerfil()));
             if (loginType.equals(RESTConstants.LOGIN_BD)){
                 if (p.getPassword().compareTo(password) == 0) {
                     return authUser(dto, password);
@@ -63,7 +63,7 @@ public class RESTAuthenticationProvider implements AuthenticationProvider {
         }
     }
 
-    private Authentication authUser(PersonalDTO data, String password) {
+    private Authentication authUser(LoginDTO data, String password) {
         RESTUserDetails userDetails = RESTUserDetailsFactory.create(data);
         return new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
     }

@@ -30,7 +30,7 @@ public class BaseController extends HandleExceptions{
     public <T> ResponseEntity<T> responseData(T response, HttpServletRequest request) {
         if (response instanceof ResponseBaseDTO) {
             ((ResponseBaseDTO) response).setOperacion(1);
-            ((ResponseBaseDTO) response).setCodigo(1);
+            ((ResponseBaseDTO) response).setCodigo(HttpStatus.OK.value());
             ((ResponseBaseDTO) response).setToken(token.updateToken(request));
         }
         return new ResponseEntity<T>(response, HttpStatus.OK);

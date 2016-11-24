@@ -16,7 +16,6 @@ public class PersonalDTO {
     private String correo;
     private String usuario;
     private boolean estado;
-    private List<PerfilDTO> perfiles;
 
     public String getId() {
         return id;
@@ -74,11 +73,4 @@ public class PersonalDTO {
         this.estado = estado;
     }
 
-    public List<PerfilDTO> getPerfiles() {
-        return perfiles;
-    }
-
-    public void setPerfiles(List<PerfilDTO> perfiles) {
-        this.perfiles = perfiles;
-    }
 }
