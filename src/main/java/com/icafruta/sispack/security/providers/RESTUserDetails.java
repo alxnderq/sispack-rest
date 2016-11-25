@@ -15,7 +15,7 @@ public class RESTUserDetails implements UserDetails {
     private LoginDTO login;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public RESTUserDetails(LoginDTO login, Collection<? extends GrantedAuthority> authorities) {
+    RESTUserDetails(LoginDTO login, Collection<? extends GrantedAuthority> authorities) {
         this.login = login;
         this.authorities = authorities;
     }
@@ -52,7 +52,7 @@ public class RESTUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return login.getPersonal().isEstado();
+        return login.getPersonal().getEstado();
     }
 
     public LoginDTO getLogin() {

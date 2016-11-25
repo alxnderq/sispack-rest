@@ -14,8 +14,6 @@ import java.util.List;
  */
 public interface SecurityService {
 
-    List<PersonalDTO> findAll();
-
     Personal findByUser(String user);
 
     List<PerfilDTO> findProfile(Integer id);

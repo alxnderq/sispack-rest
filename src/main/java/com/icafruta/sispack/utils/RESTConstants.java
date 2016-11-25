@@ -5,7 +5,11 @@ package com.icafruta.sispack.utils;
  */
 public interface RESTConstants {
 
-    public static Integer LOGIN_DEFAULT = 1;
-    public static Integer LOGIN_GENERIC_PASSWORD = 2;
-    public static Integer LOGIN_BD = 3;
+    int OPERACION_EXITOSA = 0;
+
+    Integer LOGIN_DEFAULT = 1;
+    Integer LOGIN_GENERIC_PASSWORD = 2;
+    Integer LOGIN_BD = 3;
+
+    String SISPACK_INFO = "sispack.info.";
 }

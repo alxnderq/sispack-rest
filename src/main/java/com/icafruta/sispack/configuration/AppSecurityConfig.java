@@ -57,15 +57,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-                .antMatchers("/rest/v1/security/**", "/swagger-ui.html", "/webjars/**", "/v2/**",
+                .antMatchers("/rest/v1/auth/**", "/swagger-ui.html", "/webjars/**", "/v2/**",
                         "/swagger-resources**", "/configuration/**")
                 .permitAll().antMatchers("/rest/v1/**").authenticated().and()
                 .addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class);
-
-        /** Custom JWT based security filter */
         http.addFilterAfter(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-
-        /** disable page caching */
         http.headers().cacheControl();
     }
 }

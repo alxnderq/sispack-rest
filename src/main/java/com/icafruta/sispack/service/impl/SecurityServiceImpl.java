@@ -2,7 +2,6 @@ package com.icafruta.sispack.service.impl;
 
 import com.icafruta.sispack.dto.MenuDTO;
 import com.icafruta.sispack.dto.PerfilDTO;
-import com.icafruta.sispack.dto.PersonalDTO;
 import com.icafruta.sispack.entity.administracion.Personal;
 import com.icafruta.sispack.entity.seguridad.Perfil;
 import com.icafruta.sispack.entity.seguridad.VwPerfil;
@@ -23,25 +22,13 @@ import java.util.List;
 public class SecurityServiceImpl implements SecurityService {
 
     @Autowired
-    SecurityRepository securityRepository;
+    private SecurityRepository securityRepository;
 
     @Autowired
-    PerfilRepository perfilRepository;
+    private PerfilRepository perfilRepository;
 
     @Autowired
-    VwPerfilRepository vwPerfilRepository;
-
-    @Override
-    public List<PersonalDTO> findAll() {
-        List<PersonalDTO> lista = new ArrayList<>();
-        List<Personal> listaPersonal = securityRepository.findAll();
-        if (listaPersonal != null && !listaPersonal.isEmpty()){
-            for (Personal p: listaPersonal) {
-                lista.add(p.toPersonalDTO());
-            }
-        }
-        return lista;
-    }
+    private VwPerfilRepository vwPerfilRepository;
 
     @Override
     public Personal findByUser(String user){

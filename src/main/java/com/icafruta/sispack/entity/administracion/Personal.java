@@ -2,8 +2,10 @@ package com.icafruta.sispack.entity.administracion;
 
 import com.icafruta.sispack.dto.PersonalDTO;
 import com.icafruta.sispack.entity.seguridad.Perfil;
+import com.icafruta.sispack.utils.converter.BooleanNumericConverter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,6 +17,9 @@ import java.util.ArrayList;
 public class Personal implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Size(max = 6)
     @Column(name = "id_psnal")
     private String id;
     @Column(name = "nbre_psnal")
@@ -29,10 +34,17 @@ public class Personal implements Serializable{
     private String usuario;
     @Column(name = "cve_psnal")
     private String password;
-    @Column(name = "etdo_psnal")
-    private boolean estado;
     @Column(name = "id_pfil")
     private Integer idPerfil;
+    @JoinColumn(name = "id_cgo", referencedColumnName = "id_prmtro")
+    @ManyToOne
+    private Parametro cargo;
+    @Convert(converter = BooleanNumericConverter.class)
+    @Column(name = "etdo_psnal")
+    private Boolean estado;
+    @Convert(converter = BooleanNumericConverter.class)
+    @Column(name = "etdo_usrio_psnal")
+    private Boolean estadoUsuario;
 
     public String getId() {
         return id;
@@ -90,11 +102,11 @@ public class Personal implements Serializable{
         this.password = password;
     }
 
-    public boolean isEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
@@ -106,6 +118,22 @@ public class Personal implements Serializable{
         this.idPerfil = idPerfil;
     }
 
+    public Parametro getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Parametro cargo) {
+        this.cargo = cargo;
+    }
+
+    public Boolean getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(Boolean estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
+
     public PersonalDTO toPersonalDTO(){
         PersonalDTO dto = new PersonalDTO();
         dto.setId(this.id);
@@ -114,7 +142,9 @@ public class Personal implements Serializable{
         dto.setDni(this.dni);
         dto.setCorreo(this.correo);
         dto.setUsuario(this.usuario);
+        dto.setCargo(this.cargo != null ? this.cargo.toParametroDTO() : null);
         dto.setEstado(this.estado);
+        dto.setEstadoUsuario(this.estadoUsuario);
         return dto;
     }
 }

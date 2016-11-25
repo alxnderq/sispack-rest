@@ -1,4 +1,4 @@
-# SISPACK-REST
+# sispack-rest
 RESTfull para Sistema de Packing - Ica Fruta
 
 # Tecnologías usadas: 

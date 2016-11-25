@@ -15,7 +15,15 @@ public class PersonalDTO {
     private String dni;
     private String correo;
     private String usuario;
-    private boolean estado;
+    private PerfilDTO perfil;
+    private ParametroDTO cargo;
+    private Boolean estado;
+    private Boolean estadoUsuario;
+
+    public PersonalDTO(){
+        estado = true;
+        estadoUsuario = false;
+    }
 
     public String getId() {
         return id;
@@ -65,12 +73,50 @@ public class PersonalDTO {
         this.usuario = usuario;
     }
 
-    public boolean isEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public PerfilDTO getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(PerfilDTO perfil) {
+        this.perfil = perfil;
+    }
+
+    public ParametroDTO getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(ParametroDTO cargo) {
+        this.cargo = cargo;
+    }
+
+    public Boolean getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(Boolean estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
+
+    public Personal toPersonal(){
+        Personal personal = new Personal();
+        personal.setId(id != null ? (!id.trim().isEmpty() ? id.toUpperCase() : null) : null);
+        personal.setNombre(this.nombre);
+        personal.setApellido(this.apellido);
+        personal.setDni(this.dni);
+        personal.setCorreo(this.correo);
+        personal.setUsuario(this.usuario);
+        personal.setCargo(this.cargo != null ? this.cargo.toParametro() : null);
+        personal.setEstado(this.estado);
+        personal.setEstadoUsuario(this.estadoUsuario);
+        return personal;
     }
 
 }

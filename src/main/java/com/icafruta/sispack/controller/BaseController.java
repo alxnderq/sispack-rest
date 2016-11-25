@@ -5,7 +5,9 @@ import com.icafruta.sispack.dto.response.ResponseBaseDTO;
 import com.icafruta.sispack.exceptions.HandleExceptions;
 import com.icafruta.sispack.security.utils.TokenUtils;
 import com.icafruta.sispack.utils.LoggerService;
+import com.icafruta.sispack.utils.RESTConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,22 +27,23 @@ public class BaseController extends HandleExceptions{
     LoggerService logger;
 
     @Autowired
-    TokenUtils token;
+    private TokenUtils token;
 
-    public <T> ResponseEntity<T> responseData(T response, HttpServletRequest request) {
+    @Autowired
+    private Environment env;
+
+    <T> ResponseEntity<T> responseData(T response, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.OK;
         if (response instanceof ResponseBaseDTO) {
-            ((ResponseBaseDTO) response).setOperacion(1);
-            ((ResponseBaseDTO) response).setCodigo(HttpStatus.OK.value());
+            ((ResponseBaseDTO) response).setOperacion(RESTConstants.OPERACION_EXITOSA);
+            ((ResponseBaseDTO) response).setCodigo(status.value());
+            ((ResponseBaseDTO) response).setMensaje(env.getProperty(RESTConstants.SISPACK_INFO + status.value()));
             ((ResponseBaseDTO) response).setToken(token.updateToken(request));
         }
-        return new ResponseEntity<T>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, status);
     }
 
-    public String generateToken(PersonalDTO dto) {
+    String generateToken(PersonalDTO dto) {
         return token.generateToken(dto);
-    }
-
-    public PersonalDTO dataToken(HttpServletRequest request) {
-        return token.getDataToken(request);
     }
 }

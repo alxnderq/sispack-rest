@@ -30,7 +30,7 @@ public class SecurityController extends BaseController{
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @RequestMapping(value = "/security/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity<ResponseLoginDTO> findByUser(@RequestBody UserDTO dto, HttpServletRequest request){
         final Authentication auth = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
@@ -40,12 +40,5 @@ public class SecurityController extends BaseController{
         ResponseEntity<ResponseLoginDTO> response = responseData(login, request);
         login.setToken(generateToken(login.getData().getPersonal()));
         return response;
-    }
-
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public ResponseEntity<ResponseListaPersonalDTO> findAll(HttpServletRequest request){
-        ResponseListaPersonalDTO response = new ResponseListaPersonalDTO();
-        response.setLista(service.findAll());
-        return responseData(response, request);
     }
 }

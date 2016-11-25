@@ -13,11 +13,12 @@ public class MessageError {
 
     public static int ERROR_GENERICO = -9999;
 
-    public static int OPERACION_EXITOSA = 1;
     public static int OPERACION_ERRONEA = 0;
     public static int ERROR_CLAVE_ERRONEA = -1001;
-    public static int ERROR_CUENTA_NO_EXISTE = -1002;
-    public static int ERROR_CUENTA_SIN_PERMISOS = -1003;
-    public static int ERROR_CUENTA_SIN_ROL = -1004;
-    public static int ERROR_SESION_EXPIRADO = -1005;
+    public static int ERROR_CUENTA_SIN_PERMISOS = -1002;
+    public static int ERROR_SESION_EXPIRADO = -1003;
+
+    // Personal
+    public static int ERROR_PERSONAL_LIST = -2000;
+    public static int ERROR_PERSONAL_SAVE = -2001;
 }
