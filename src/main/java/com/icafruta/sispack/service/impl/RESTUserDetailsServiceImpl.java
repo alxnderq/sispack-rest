@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 public class RESTUserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    SecurityService service;
+    private SecurityService service;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Personal p = service.findByUser(username);
         if (p != null){
-            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getIdPerfil()));
+            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getPerfil().getId()));
             return RESTUserDetailsFactory.create(dto);
         } else {
             throw new UsernameNotFoundException(String.format("No se encontro el usuario '%s'.", username));

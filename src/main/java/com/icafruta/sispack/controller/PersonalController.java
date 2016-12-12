@@ -1,6 +1,7 @@
 package com.icafruta.sispack.controller;
 
 import com.icafruta.sispack.dto.PersonalDTO;
+import com.icafruta.sispack.dto.request.RequestBuscarPersonalDTO;
 import com.icafruta.sispack.dto.response.ResponseBaseDTO;
 import com.icafruta.sispack.dto.response.ResponseListaPersonalDTO;
 import com.icafruta.sispack.exceptions.RESTException;
@@ -24,9 +25,9 @@ public class PersonalController extends BaseController {
     private PersonalService service;
 
     @RequestMapping(value = "/personal/find/", method = RequestMethod.POST)
-    public ResponseEntity<ResponseListaPersonalDTO> find(Pageable pageable, HttpServletRequest request) throws RESTException{
+    public ResponseEntity<ResponseListaPersonalDTO> find(@RequestBody RequestBuscarPersonalDTO dto, HttpServletRequest request) throws RESTException{
         ResponseListaPersonalDTO response = new ResponseListaPersonalDTO();
-        response.setLista(service.find(pageable));
+        response.setLista(service.find(dto));
         return responseData(response, request);
     }
 

@@ -1,6 +1,7 @@
 package com.icafruta.sispack.service.impl;
 
 import com.icafruta.sispack.dto.PersonalDTO;
+import com.icafruta.sispack.dto.request.RequestBuscarPersonalDTO;
 import com.icafruta.sispack.entity.administracion.Personal;
 import com.icafruta.sispack.exceptions.RESTException;
 import com.icafruta.sispack.repository.PersonalRepository;
@@ -18,16 +19,16 @@ import java.util.List;
  * Created by alxnderq on 11/24/2016.
  */
 @Service
-public class PersonalServiceImpl implements PersonalService {
+public class PersonalServiceImpl extends BaseServiceImpl implements PersonalService {
 
     @Autowired
     private PersonalRepository repository;
 
     @Override
-    public List<PersonalDTO> find(Pageable pageable) throws RESTException{
+    public List<PersonalDTO> find(RequestBuscarPersonalDTO dto) throws RESTException{
         try {
             List<PersonalDTO> listPersonal = new ArrayList<>();
-            Page<Personal> page = repository.findAll(pageable);
+            Page<Personal> page = repository.findAll(pageable(dto.getPagination()));
             if (page != null && page.hasContent()) {
                 List<Personal> list = page.getContent();
                 list.forEach(personal -> listPersonal.add(personal.toPersonalDTO()));

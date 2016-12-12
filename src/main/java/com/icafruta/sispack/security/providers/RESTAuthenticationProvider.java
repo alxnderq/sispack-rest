@@ -26,7 +26,7 @@ public class RESTAuthenticationProvider implements AuthenticationProvider {
     private SecurityService service;
 
     @Autowired
-    Environment env;
+    private Environment env;
 
     @Value("${configuration.default.password}")
     String defaultPassword;
@@ -42,7 +42,7 @@ public class RESTAuthenticationProvider implements AuthenticationProvider {
 
         Personal p = service.findByUser(username);
         if (p != null){
-            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getIdPerfil()));
+            LoginDTO dto = new LoginDTO(p.toPersonalDTO(), service.findProfile(p.getPerfil().getId()));
             if (loginType.equals(RESTConstants.LOGIN_BD)){
                 if (p.getPassword().compareTo(password) == 0) {
                     return authUser(dto, password);

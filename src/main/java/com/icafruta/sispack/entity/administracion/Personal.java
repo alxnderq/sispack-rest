@@ -34,8 +34,9 @@ public class Personal implements Serializable{
     private String usuario;
     @Column(name = "cve_psnal")
     private String password;
-    @Column(name = "id_pfil")
-    private Integer idPerfil;
+    @JoinColumn(name = "id_pfil", referencedColumnName = "id_pfil")
+    @ManyToOne
+    private Perfil perfil;
     @JoinColumn(name = "id_cgo", referencedColumnName = "id_prmtro")
     @ManyToOne
     private Parametro cargo;
@@ -110,12 +111,12 @@ public class Personal implements Serializable{
         this.estado = estado;
     }
 
-    public Integer getIdPerfil() {
-        return idPerfil;
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    public void setIdPerfil(Integer idPerfil) {
-        this.idPerfil = idPerfil;
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     public Parametro getCargo() {
