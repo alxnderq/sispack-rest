@@ -1,13 +1,10 @@
 package com.icafruta.sispack.controller;
 
 import com.icafruta.sispack.dto.UserDTO;
-import com.icafruta.sispack.dto.response.ResponseListaPersonalDTO;
 import com.icafruta.sispack.dto.response.ResponseLoginDTO;
 import com.icafruta.sispack.security.providers.RESTUserDetails;
-import com.icafruta.sispack.service.SecurityService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,9 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class SecurityController extends BaseController{
-
-    @Autowired
-    private SecurityService service;
 
     @Autowired
     private AuthenticationManager authenticationManager;
