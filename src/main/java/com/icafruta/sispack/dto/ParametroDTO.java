@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class ParametroDTO implements Serializable {
 
+    private static final long serialVersionUID = -8094986956007053449L;
     private Integer id;
     private String grupo;
     private String codigo;

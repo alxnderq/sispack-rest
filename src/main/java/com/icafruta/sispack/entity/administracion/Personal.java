@@ -1,13 +1,22 @@
 package com.icafruta.sispack.entity.administracion;
 
+import java.io.Serializable;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
 import com.icafruta.sispack.dto.PersonalDTO;
 import com.icafruta.sispack.entity.seguridad.Perfil;
 import com.icafruta.sispack.utils.converter.BooleanNumericConverter;
-
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by alxnderq on 12/11/2016.
@@ -16,6 +25,7 @@ import java.util.ArrayList;
 @Table(name = "personal", schema = "administracion")
 public class Personal implements Serializable{
 
+    private static final long serialVersionUID = -721128923496659155L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)

@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Table(name = "menu", schema = "seguridad")
 public class Menu implements Serializable {
 
+    private static final long serialVersionUID = -2215561972626960837L;
     @Id
     @Basic(optional = false)
     @NotNull

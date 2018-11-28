@@ -1,12 +1,12 @@
 package com.icafruta.sispack.security.providers;
 
 import com.icafruta.sispack.dto.LoginDTO;
-import com.icafruta.sispack.dto.PersonalDTO;
 import com.icafruta.sispack.entity.administracion.Personal;
 import com.icafruta.sispack.service.SecurityService;
 import com.icafruta.sispack.utils.Encrypt;
 import com.icafruta.sispack.utils.MessageError;
 import com.icafruta.sispack.utils.RESTConstants;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;

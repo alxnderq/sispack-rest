@@ -1,13 +1,13 @@
 package com.icafruta.sispack.security.providers;
 
-import com.icafruta.sispack.dto.LoginDTO;
-import com.icafruta.sispack.dto.PerfilDTO;
-import com.icafruta.sispack.dto.PersonalDTO;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.icafruta.sispack.dto.LoginDTO;
+import com.icafruta.sispack.dto.PerfilDTO;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * Created by alxnderq on 11/22/2016.

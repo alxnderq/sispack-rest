@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class ResponseBaseDTO implements Serializable {
 
+    private static final long serialVersionUID = 4225205794230378447L;
     private Integer operacion;
     private Integer codigo;
     private String mensaje;

@@ -6,9 +6,9 @@ import com.icafruta.sispack.dto.response.ResponseBaseDTO;
 import com.icafruta.sispack.dto.response.ResponseListaPersonalDTO;
 import com.icafruta.sispack.exceptions.RESTException;
 import com.icafruta.sispack.service.PersonalService;
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

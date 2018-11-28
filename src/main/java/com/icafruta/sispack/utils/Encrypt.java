@@ -1,20 +1,22 @@
 package com.icafruta.sispack.utils;
 
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.Security;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 /**
  * Created by alxnderq on 11/22/2016.
  */
 public class Encrypt implements Serializable {
 
+    private static final long serialVersionUID = -4760426168025074815L;
     public static final String HASH_MD5;
     public static final String HASH_MD2;
     public static final String HASH_SHA1;

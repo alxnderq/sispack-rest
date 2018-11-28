@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class BuscarPersonalDTO implements Serializable {
 
+    private static final long serialVersionUID = -3413667309875490258L;
     private String codigo;
     private String apellido;
     private String nombre;

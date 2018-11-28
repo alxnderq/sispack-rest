@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class PaginationDTO implements Serializable {
 
+    private static final long serialVersionUID = 5287310945979162009L;
     private int page;
     private int size;
     private String[] properties;

@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 public class RequestBuscarPersonalDTO implements Serializable {
 
+    private static final long serialVersionUID = 7081197790081961201L;
     private BuscarPersonalDTO data;
     private PaginationDTO pagination;
 

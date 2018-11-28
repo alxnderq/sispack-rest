@@ -1,10 +1,13 @@
 package com.icafruta.sispack.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by alxnderq on 13/11/2016.
  */
-public class UserDTO {
+public class UserDTO implements Serializable{
 
+    private static final long serialVersionUID = 7838260792148421832L;
     private String username;
     private String password;
 

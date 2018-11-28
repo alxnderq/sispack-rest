@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class MenuDTO implements Serializable {
 
+    private static final long serialVersionUID = 2127062449539313279L;
     private Integer id;
     private String nombre;
     private String url;

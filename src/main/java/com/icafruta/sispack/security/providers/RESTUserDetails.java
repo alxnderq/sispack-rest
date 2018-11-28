@@ -1,17 +1,18 @@
 package com.icafruta.sispack.security.providers;
 
+import java.util.Collection;
+
 import com.icafruta.sispack.dto.LoginDTO;
-import com.icafruta.sispack.dto.PersonalDTO;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
 
 /**
  * Created by alxnderq on 11/22/2016.
  */
 public class RESTUserDetails implements UserDetails {
 
+    private static final long serialVersionUID = 1938647632705095382L;
     private LoginDTO login;
     private final Collection<? extends GrantedAuthority> authorities;
 

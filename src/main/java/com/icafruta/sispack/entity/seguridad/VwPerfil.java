@@ -16,6 +16,7 @@ import java.io.Serializable;
 @Table(name = "vw_perfil", schema = "seguridad")
 public class VwPerfil implements Serializable {
 
+    private static final long serialVersionUID = -7118379556643681401L;
     @Id
     @Column(name = "id_asnc_pfil")
     private Integer id;

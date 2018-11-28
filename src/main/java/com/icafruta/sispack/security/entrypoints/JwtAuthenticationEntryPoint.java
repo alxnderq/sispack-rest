@@ -26,6 +26,7 @@ import java.io.Serializable;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 
+    private static final long serialVersionUID = -2117972544329982856L;
     @Autowired
     private Environment env;
 

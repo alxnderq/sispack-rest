@@ -1,14 +1,15 @@
 package com.icafruta.sispack.dto;
 
-import com.icafruta.sispack.entity.administracion.Personal;
+import java.io.Serializable;
 
-import java.util.List;
+import com.icafruta.sispack.entity.administracion.Personal;
 
 /**
  * Created by alxnderq on 11/16/2016.
  */
-public class PersonalDTO {
+public class PersonalDTO implements Serializable{
 
+    private static final long serialVersionUID = 3216701830304844548L;
     private String id;
     private String nombre;
     private String apellido;

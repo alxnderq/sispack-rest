@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class ResponseListaPersonalDTO extends ResponseBaseDTO {
 
+    private static final long serialVersionUID = 1297156482585726550L;
     private List<PersonalDTO> lista;
 
     public List<PersonalDTO> getLista() {

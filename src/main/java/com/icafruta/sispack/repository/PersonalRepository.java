@@ -1,6 +1,7 @@
 package com.icafruta.sispack.repository;
 
 import com.icafruta.sispack.entity.administracion.Personal;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

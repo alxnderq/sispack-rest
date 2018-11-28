@@ -14,6 +14,7 @@ import java.io.Serializable;
 @Table(name = "parametro", schema = "administracion")
 public class Parametro implements Serializable {
 
+    private static final long serialVersionUID = 7262220898719286231L;
     @Id
     @Basic(optional = false)
     @NotNull

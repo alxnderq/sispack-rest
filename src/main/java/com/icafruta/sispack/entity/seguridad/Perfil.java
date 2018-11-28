@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Table(name = "perfil", schema = "seguridad")
 public class Perfil implements Serializable {
 
+    private static final long serialVersionUID = -7039187223105765316L;
     @Id
     @Column(name = "id_pfil")
     private Integer id;

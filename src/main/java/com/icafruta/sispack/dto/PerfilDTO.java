@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class PerfilDTO implements Serializable{
 
+    private static final long serialVersionUID = 2990820475359335042L;
     private Integer id;
     private String nombre;
     private boolean estado;

@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class RESTException extends Exception implements Serializable{
 
+    private static final long serialVersionUID = 2392469481713832000L;
     private int codigo;
     private Exception ex;
     private String message;

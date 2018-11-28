@@ -22,6 +22,7 @@ import java.util.Map;
 @Component
 public class JwtTokenUtil implements Serializable {
 
+    private static final long serialVersionUID = 7453708251350878103L;
     private static final String CONTRACT_KEY_USER = "user";
     private static final String CONTRACT_KEY_CREATED = "created";
     private static final String CONTRACT_KEY_USER_DATA = "userData";

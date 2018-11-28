@@ -7,6 +7,7 @@ import com.icafruta.sispack.dto.LoginDTO;
  */
 public class ResponseLoginDTO extends ResponseBaseDTO {
 
+    private static final long serialVersionUID = -8801817850117586707L;
     private LoginDTO data;
 
     public LoginDTO getData() {
